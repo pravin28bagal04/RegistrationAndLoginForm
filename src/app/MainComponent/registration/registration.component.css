@@ -1,0 +1,20 @@
+.registerdiv {
+    margin: auto;
+    margin-top: 5%;
+    width: 75%;
+    height: auto;
+
+}
+
+/* input.ng-pristine {
+    background-color:yellow;
+} */
+
+input.ng-touched.ng-invalid {
+    /* background-color: red; */
+    border-left: 5px solid red;
+}
+
+input.ng-touched.ng-valid {
+    border-left: 5px solid green;
+}

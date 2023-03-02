@@ -1,0 +1,21 @@
+.footerCSS{
+    height: auto;
+    padding: 15px 15px 15px 16px;
+    color: white;
+}
+.text-centre{
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li a{
+    display: block;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+}

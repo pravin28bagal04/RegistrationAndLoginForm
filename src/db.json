@@ -1,0 +1,175 @@
+{
+  "register": [
+    {
+      "reg_type": "1",
+      "fname": "Pravin",
+      "mname": "Arun",
+      "lname": "Bagal",
+      "buildingdet": "Atul Heightes, Flat No 202",
+      "street": "Shingote Park",
+      "city": "Hadapsar",
+      "pincode": "412307",
+      "state": "1",
+      "district": "1",
+      "tehsil": "1",
+      "email": "bagalpra@gmail.com",
+      "mobile_no": "8605976998",
+      "idproof": "1",
+      "idproofno": "ASSPB7721P",
+      "uid": "531477220553",
+      "username": "Pravin123",
+      "userpassword": "Com*mon#86",
+      "reuserpassword": "Com*mon#86",
+      "hintqiestionid": "1",
+      "hintquestans": "Test1",
+      "id": 4
+    }
+  ],
+  "reg_type": [
+    {
+      "id": 1,
+      "reg_type_name": "Citizen"
+    },
+    {
+      "id": 2,
+      "reg_type_name": "Deed Writer"
+    },
+    {
+      "id": 3,
+      "reg_type_name": "Advocate"
+    }
+  ],
+  "states": [
+    {
+      "id": 1,
+      "state_name": "Maharashtra"
+    },
+    {
+      "id": 2,
+      "state_name": "Gujarat"
+    },
+    {
+      "id": 3,
+      "state_name": "Karnataka"
+    },
+    {
+      "id": 4,
+      "state_name": "Rajasthan"
+    }
+  ],
+  "district": [
+    {
+      "id": 1,
+      "state_id": 1,
+      "district_name": "Pune"
+    },
+    {
+      "id": 2,
+      "state_id": 1,
+      "district_name": "Solapur"
+    },
+    {
+      "id": 3,
+      "state_id": 1,
+      "district_name": "Nasik"
+    },
+    {
+      "id": 4,
+      "state_id": 2,
+      "district_name": "Ahmedabad"
+    },
+    {
+      "id": 5,
+      "state_id": 2,
+      "district_name": "Vadodara"
+    },
+    {
+      "id": 6,
+      "state_id": 3,
+      "district_name": "Bagalkot"
+    },
+    {
+      "id": 7,
+      "state_id": 3,
+      "district_name": "Bidar"
+    },
+    {
+      "id": 8,
+      "state_id": 4,
+      "district_name": "Ajmer"
+    },
+    {
+      "id": 9,
+      "state_id": 4,
+      "district_name": "Jaipur"
+    }
+  ],
+  "tehsil": [
+    {
+      "id": 1,
+      "district_id": 1,
+      "tehsil_name": "Haveli"
+    },
+    {
+      "id": 2,
+      "district_id": 1,
+      "tehsil_name": "Indapur"
+    },
+    {
+      "id": 3,
+      "district_id": 1,
+      "tehsil_name": "Maval"
+    },
+    {
+      "id": 4,
+      "district_id": 1,
+      "tehsil_name": "Mulshi"
+    },
+    {
+      "id": 5,
+      "district_id": 2,
+      "tehsil_name": "Madha"
+    },
+    {
+      "id": 6,
+      "district_id": 2,
+      "tehsil_name": "Karmala"
+    }
+  ],
+  "idProof": [
+    {
+      "id": 1,
+      "idprooftype": "PAN"
+    },
+    {
+      "id": 2,
+      "idprooftype": "Valid Driving License"
+    },
+    {
+      "id": 3,
+      "idprooftype": "Voter ID"
+    }
+  ],
+  "hintQuestion": [
+    {
+      "id": 1,
+      "hintQuestion": "What is the name of your favourite book ?"
+    },
+    {
+      "id": 2,
+      "hintQuestion": "What is the name of your favourite movie ?"
+    },
+    {
+      "id": 3,
+      "hintQuestion": "What is the name of your pet ?"
+    },
+    {
+      "id": 4,
+      "hintQuestion": "What is your favourite food ?"
+    },
+    {
+      "id": 5,
+      "hintQuestion": "Who is your favourite actor ?"
+    }
+  ]
+}

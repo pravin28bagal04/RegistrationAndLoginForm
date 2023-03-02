@@ -1,0 +1,433 @@
+<app-main-header></app-main-header>
+<div class="container">
+    <div class="card registerdiv">
+        <div class="card-header text-center text-bg-info">
+            <h2>Citizen Registration</h2>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="formRegister" autocomplete="off">
+                <div class="row mt-2">
+                    <div class="col-sm-3">
+                        <label for="reg_type" class="form-label">Select Type</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <select formControlName="reg_type" id="reg_type" name="reg_type" class="form-select"
+                            [ngClass]="{ 'is-invalid': submitted && registerFormControl.reg_type.errors}">
+                            <option disabled>Select Type</option>
+                            <option *ngFor="let reg_type of reg_type_data" value="{{reg_type.id}}">
+                                {{reg_type.reg_type_name}}</option>
+                        </select>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.reg_type.touched || submitted) && registerFormControl.reg_type.errors?.required">
+                            Registration type is required.
+                        </span>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-sm-3">
+                        <label for="uname" class="form-label">User Name</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="fname" formControlName="fname"
+                                placeholder="Enter First Name"
+                                [ngClass]="{ 'is-invalid': submitted && registerFormControl.fname.errors }">
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.fname.touched || submitted) && registerFormControl.fname.errors?.required">
+                            First name is required.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.fname.touched || submitted) && registerFormControl.fname.errors?.minlength">
+                            First name should be at least 4 char.
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="mname" formControlName="mname"
+                                placeholder="Enter Middle Name"
+                                [ngClass]="{ 'is-invalid': submitted && registerFormControl.mname.errors }">
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.mname.touched || submitted) && registerFormControl.mname.errors?.minlength">
+                            Middle name should be at least 4 char.
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="lname" formControlName="lname"
+                                placeholder="Enter Last Name"
+                                [ngClass]="{ 'is-invalid': submitted && registerFormControl.lname.errors }">
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.lname.touched || submitted) && registerFormControl.lname.errors?.required">
+                            Last name is required.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.lname.touched || submitted) && registerFormControl.lname.errors?.minlength">
+                            Last name should be at least 4 char.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.lname.touched || submitted) && registerFormControl.lname.errors?.maxlength">
+                            Last name should be maximum 20 char.
+                        </span>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-sm-3">
+                        <label for="buildingdet" class="form-label">Building Name/No.</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="buildingdet" formControlName="buildingdet"
+                                placeholder="Enter building details"
+                                [ngClass]="{ 'is-invalid': submitted && registerFormControl.buildingdet.errors }">
+
+                            <span class="text-danger"
+                                *ngIf="(registerFormControl.buildingdet.touched || submitted) && registerFormControl.buildingdet.errors?.minlength">
+                                Building details should be at least 5 char.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="street" class="form-label">Street/Locality:</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="street" formControlName="street"
+                                placeholder="Enter street details"
+                                [ngClass]="{ 'is-invalid': submitted && registerFormControl.street.errors }">
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.street.touched || submitted) && registerFormControl.street.errors?.minlength">
+                            Street name should be at least 5 char.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-sm-3">
+                        <label for="city" class="form-label">City</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="city" formControlName="city"
+                                placeholder="Enter city"
+                                [ngClass]="{ 'is-invalid': submitted && registerFormControl.city.errors }">
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.city.touched || submitted) && registerFormControl.city.errors?.minlength">
+                            City name should be at least 4 char.
+                        </span>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <label for="pincode" class="form-label">Pincode</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="pincode" formControlName="pincode"
+                                placeholder="Enter street details"
+                                [ngClass]="{ 'is-invalid': submitted && registerFormControl.pincode.errors }">
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.pincode.touched || submitted) && registerFormControl.pincode.errors?.required">
+                            Pincode is required.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.pincode.touched || submitted) && registerFormControl.pincode.errors?.minlength">
+                            Pincode should be minimum 6 digit.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.pincode.touched || submitted) && registerFormControl.pincode.errors?.maxlength">
+                            Pincode should be maximum 6 digit.
+                        </span>
+                    </div>
+
+                </div>
+                <div class="row mt-2">
+                    <div class="col-sm-3">
+                        <label for="state" class="form-label">Select State</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <select formControlName="state" id="state" class="form-select" (change)="onStateChange($event)"
+                            [ngClass]=" { 'is-invalid' : submitted && registerFormControl.state.errors }">
+                            <option disabled>--Select State--</option>
+                            <option *ngFor="let states of states_data" [value]="states.id">
+                                {{states.state_name}}</option>
+                        </select>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.state.touched || submitted) && registerFormControl.state.errors?.required">
+                            State is required.
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="district" class="form-label">Select District</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <select formControlName="district" id="district" class="form-select"
+                            (change)="onDistrictChange($event)"
+                            [ngClass]="{ 'is-invalid': submitted && registerFormControl.district.errors }">
+                            <option disabled>--Select district--</option>
+                            <option *ngFor="let district of district_data" [value]="district.id">
+                                {{district.district_name}}</option>
+                        </select>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.district.touched || submitted) && registerFormControl.district.errors?.required">
+                            District is required.
+                        </span>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-sm-3">
+                        <label for="tehsil" class="form-label">Select Tehsil</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <select formControlName="tehsil" id="tehsil" class="form-select"
+                            [ngClass]="{ 'is-invalid': submitted && registerFormControl.tehsil.errors }">
+                            <option disabled>--Select tehsil--</option>
+                            <option *ngFor="let tehsil of tehsil_data" [value]="tehsil.id">
+                                {{tehsil.tehsil_name}}</option>
+                        </select>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.tehsil.touched || submitted) && registerFormControl.tehsil.errors?.required">
+                            Tehsil is required.
+                        </span>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-sm-3">
+                        <label for="email" class="form-label">Email</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="email" formControlName="email"
+                                placeholder="Enter Email"
+                                [ngClass]="{ 'is-invalid': submitted && registerFormControl.email.errors }">
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.required">
+                            Email is required.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.email">
+                            Email is not in correct format.
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="mobile_no" class="form-label">Mobile No.</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id=" mobile_no" formControlName="mobile_no"
+                                placeholder="Enter Mobile No."
+                                [ngClass]="{ 'is-invalid': submitted && registerFormControl.mobile_no.errors }">
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.mobile_no.touched || submitted) && registerFormControl.mobile_no.errors?.required">
+                            Mobile number is required.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.mobile_no.touched || submitted) && registerFormControl.mobile_no.errors?.minlength">
+                            Mobile number should be minimum 10 digit.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.mobile_no.touched || submitted) && registerFormControl.mobile_no.errors?.maxlength">
+                            Mobile number should be maximum 10 digit.
+                        </span>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-sm-3">
+                        <label for="idproof" class="form-label">Select ID Proof</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <select formControlName="idproof" id="idproof" class="form-select"
+                            [ngClass]="{ 'is-invalid': submitted && registerFormControl.idproof.errors }">
+                            <option disabled>Select ID Proof</option>
+                            <option *ngFor="let idproof of idproof_data" value="{{idproof.id}}">
+                                {{idproof.idprooftype}}</option>
+                        </select>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.idproof.touched || submitted) && registerFormControl.idproof.errors?.required">
+                            ID Proof is required.
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="idproofno" class="form-label">ID Proof</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="idproofno" formControlName="idproofno"
+                                placeholder="Enter ID No."
+                                [ngClass]="{ 'is-invalid': submitted && registerFormControl.idproofno.errors }">
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.idproofno.touched || submitted) && registerFormControl.idproofno.errors?.required">
+                            ID Proof number is required.
+                        </span>
+                    </div>
+
+                </div>
+                <div class="row mt-2">
+                    <div class="col-sm-3">
+                        <label for="uid" class="form-label">Aadhaar/UID</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="uid" formControlName="uid"
+                                placeholder="Enter Aadhaar No."
+                                [ngClass]="{ 'is-invalid': submitted && registerFormControl.uid.errors }">
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.uid.touched || submitted) && registerFormControl.uid.errors?.required">
+                            Aadhaar is required.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.uid.touched || submitted) && registerFormControl.uid.errors?.minlength">
+                            Aadhaar should be minimum 12 digit.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.uid.touched || submitted) && registerFormControl.uid.errors?.maxlength">
+                            Aadhaar should be maximum 12 digit.
+                        </span>
+                    </div>
+
+                </div>
+                <div class="row mt-2">
+                    <div class="col-sm-3">
+                        <label for="username" class="form-label">Enter User name</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="username" formControlName="username"
+                                placeholder="Enter User Name"
+                                [ngClass]="{ 'is-invalid': submitted && registerFormControl.username.errors }">
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.username.touched || submitted) && registerFormControl.username.errors?.required">
+                            User name is required.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.username.touched || submitted) && registerFormControl.username.errors?.minlength">
+                            User name should be minimum 8 characters.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.username.touched || submitted) && registerFormControl.username.errors?.maxlength">
+                            User name should be maximum 15 characters.
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="userpassword" class="form-label">Enter Password</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="userpassword" formControlName="userpassword"
+                                placeholder="Enter Password"
+                                [ngClass]="{ 'is-invalid': submitted && registerFormControl.userpassword.errors }">
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.userpassword.touched || submitted) && registerFormControl.userpassword.errors?.required">
+                            Password is required.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.userpassword.touched || submitted) && registerFormControl.userpassword.errors?.minlength">
+                            Password should be minimum 8 characters.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.userpassword.touched || submitted) && registerFormControl.userpassword.errors?.maxlength">
+                            Password should be maximum 15 characters.
+                        </span>
+                    </div>
+
+                </div>
+                <div class="row mt-2">
+                    <div class="col-sm-3">
+                        <label for="hintqiestionid" class="form-label">Select Hint Question</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <select formControlName="hintqiestionid" id="hintqiestionid" class="form-select"
+                            [ngClass]="{ 'is-invalid': submitted && registerFormControl.hintqiestionid.errors }">
+                            <option disabled>Select ID Proof</option>
+                            <option *ngFor="let hintquestion of hintQues_data" value="{{hintquestion.id}}">
+                                {{hintquestion.hintQuestion}}</option>
+                        </select>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.hintqiestionid.touched || submitted) && registerFormControl.hintqiestionid.errors?.required">
+                            Hint question is required.
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="hintquestans" class="form-label">Enter Answer</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="hintquestans" formControlName="hintquestans"
+                                placeholder="Enter Answer"
+                                [ngClass]="{ 'is-invalid': submitted && registerFormControl.hintquestans.errors }">
+                        </div>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.hintquestans.touched || submitted) && registerFormControl.hintquestans.errors?.required">
+                            Hint question answer is required.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.hintquestans.touched || submitted) && registerFormControl.hintquestans.errors?.minlength">
+                            Hint question answer should be minimum 5 characters.
+                        </span>
+                    </div>
+
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-3"></div>
+                </div>
+
+            </form>
+        </div>
+        <div class="card-footer text-muted text-center">
+            <button type="submit" class="btn btn-success" *ngIf="showRegister" [disabled]="!formRegister.valid"
+                (click)="register(this.formRegister.value)">Register</button> &nbsp;
+            <button type="button" class="btn btn-info" *ngIf="showUpdate" [disabled]="!formRegister.valid"
+                (click)="updateRegister(this.formRegister.value)">Update</button>&nbsp;
+            <button type="button" class="btn btn-warning" (click)="onReset()">Reset</button>
+        </div>
+
+    </div>
+    <hr>
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Registration Type</th>
+                <th>First Name</th>
+                <th>Middle Name</th>
+                <th>Last Name</th>
+                <th>Building Name</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>Pincode</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let regData of registeredUsers">
+                <td>{{regData.id}}</td>
+                <td>{{regData.reg_type}}</td>
+                <td>{{regData.fname}}</td>
+                <td>{{regData.mname}}</td>
+                <td>{{regData.lname}}</td>
+                <td>{{regData.buildingdet}}</td>
+                <td>{{regData.street}}</td>
+                <td>{{regData.city}}</td>
+                <td>{{regData.pincode}}</td>
+                <td>
+                    <button type="button" class="btn btn-info" (click)="editRegister(regData)">Edit</button>
+                    <button type="button" class="btn btn-danger"
+                        (click)="deleteRegistration(regData.id)">Delete</button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-main-footer></app-main-footer>

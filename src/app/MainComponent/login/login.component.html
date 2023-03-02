@@ -1,0 +1,51 @@
+<app-main-header></app-main-header>
+<div class="container-fluid">
+    <div class="card  logindiv" style="margin-top: 150px; margin-bottom: 150px;">
+        <div class="card-header text-center text-bg-info">
+            <!-- <img [src]="ImagePath"> -->
+            <!-- <i class="bi bi-person-circle" style="height: 50px; width: 50px;"></i> -->
+            <h2>Login</h2>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="formLogin" autocomplete="off">
+                <div class="mb-3">
+                    <label for="uname" class="form-label">User Name</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-user"><i class="bi bi-person-circle"></i></span>
+                        <input type="text" class="form-control" id="uname" formControlName="uname"
+                            placeholder="Enter User Name">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-user"><i class="bi bi-eye-fill"></i></span>
+                        <input type="password" class="form-control" id="password" formControlName="password"
+                            placeholder="Enter password">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="card-footer text-muted text-center">
+            <button type="submit" class="btn btn-success" (click)="login(this.formLogin.value)">Login</button>
+        </div>
+        <div class="card-body text-center">
+            <!-- <div class="row mb-3">
+                <div class="col-sm-6">
+                    <a routerLink="/forgotusername" class="card-link">Forgot User Name?</a>
+                </div>
+                <div class="col-sm-6">
+                    <a routerLink="/forgotpassword" class="card-link">Forgot Password?</a>
+                </div>
+            </div> -->
+            <div class="row ">
+                <div class="col-sm-12">
+                    Don't have account?
+                    <a routerLink="/register" class="card-link">Register</a>&nbsp; hear.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-main-footer></app-main-footer>

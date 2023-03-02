@@ -1,0 +1,10 @@
+<div class="topnav">
+    <a [routerLink]="['/admin']">Admin</a>
+    <div class="topnav-right">
+        <a routerLink="./services" routerLinkActive="active">Services</a>
+        <a routerLink="./contactus" routerLinkActive="active">Contac us</a>
+        <a routerLink="./about" routerLinkActive="active">About us</a>
+        <button type="button" class="btn btn-link" (click)="logout()">Logout</button>
+
+    </div>
+</div>
