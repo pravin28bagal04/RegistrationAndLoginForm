@@ -41,6 +41,14 @@
                             *ngIf="(registerFormControl.fname.touched || submitted) && registerFormControl.fname.errors?.minlength">
                             First name should be at least 4 char.
                         </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.lname.touched || submitted) && registerFormControl.lname.errors?.maxlength">
+                            First name should be maximum 20 char.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.fname.touched || submitted) && registerFormControl.fname.errors?.pattern">
+                            First name contains only characters.
+                        </span>
                     </div>
                     <div class="col-sm-3">
                         <div class="input-group">
@@ -51,6 +59,14 @@
                         <span class="text-danger"
                             *ngIf="(registerFormControl.mname.touched || submitted) && registerFormControl.mname.errors?.minlength">
                             Middle name should be at least 4 char.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.lname.touched || submitted) && registerFormControl.lname.errors?.maxlength">
+                            Middle name should be maximum 20 char.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.fname.touched || submitted) && registerFormControl.fname.errors?.pattern">
+                            Middle name contains only characters.
                         </span>
                     </div>
                     <div class="col-sm-3">
@@ -70,6 +86,10 @@
                         <span class="text-danger"
                             *ngIf="(registerFormControl.lname.touched || submitted) && registerFormControl.lname.errors?.maxlength">
                             Last name should be maximum 20 char.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.fname.touched || submitted) && registerFormControl.fname.errors?.pattern">
+                            Middle name contains only characters.
                         </span>
                     </div>
                 </div>

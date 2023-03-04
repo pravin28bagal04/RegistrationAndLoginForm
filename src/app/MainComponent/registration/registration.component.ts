@@ -39,9 +39,9 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
     this.formRegister = this.fb.group({
       reg_type: [null, Validators.compose([Validators.required])],
-      fname: [null, Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(20)])],
-      mname: [null, Validators.compose([Validators.minLength(4)])],
-      lname: [null, Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(20)])],
+      fname: [null, Validators.compose([Validators.required, Validators.pattern(/^[A-Za-z]+$/), Validators.minLength(4), Validators.maxLength(20)])],
+      mname: [null, Validators.compose([Validators.minLength(4), Validators.maxLength(20), Validators.pattern(/^[A-Za-z]+$/)])],
+      lname: [null, Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern(/^[A-Za-z]+$/)])],
       buildingdet: [null, Validators.compose([Validators.minLength(5)])],
       street: [null, Validators.compose([Validators.minLength(5)])],
       city: [null, Validators.compose([Validators.minLength(4)])],

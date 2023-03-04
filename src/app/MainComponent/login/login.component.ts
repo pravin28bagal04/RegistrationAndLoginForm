@@ -39,10 +39,16 @@ export class LoginComponent implements OnInit {
           return a.username === data.uname && a.userpassword === data.password
         });
         if (user) {
+
+          //console.log(user);
           alert('You are successfully login...');
           sessionStorage.setItem('uname', this.formLogin.value.uname);
           this.formLogin.reset();
-          this.route.navigate(['/admin']);
+          if (user.role_id == 999901) {
+            this.route.navigate(['/admin']);
+          } else if (user.role_id == 999902) {
+            this.route.navigate(['/dashboard']);
+          }
         } else {
           alert('User Not Found...');
           this.route.navigate(['/login']);
