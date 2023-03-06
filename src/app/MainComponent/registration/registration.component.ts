@@ -42,22 +42,22 @@ export class RegistrationComponent implements OnInit {
       fname: [null, Validators.compose([Validators.required, Validators.pattern(/^[A-Za-z]+$/), Validators.minLength(4), Validators.maxLength(20)])],
       mname: [null, Validators.compose([Validators.minLength(4), Validators.maxLength(20), Validators.pattern(/^[A-Za-z]+$/)])],
       lname: [null, Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern(/^[A-Za-z]+$/)])],
-      buildingdet: [null, Validators.compose([Validators.minLength(5)])],
-      street: [null, Validators.compose([Validators.minLength(5)])],
-      city: [null, Validators.compose([Validators.minLength(4)])],
-      pincode: [null, Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(6)])],
+      buildingdet: [null, Validators.compose([Validators.minLength(5), Validators.pattern(/^[a-zA-Z0-9-_( )]+$/)])],
+      street: [null, Validators.compose([Validators.minLength(5), Validators.pattern(/^[a-zA-Z0-9-_]+$/)])],
+      city: [null, Validators.compose([Validators.minLength(4), Validators.pattern(/^[A-Za-z-]+$/)])],
+      pincode: [null, Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(6), Validators.pattern(/^[1-9][0-9]{5}$/)])],
       state: [null, Validators.compose([Validators.required])],
       district: [null, Validators.compose([Validators.required])],
       tehsil: [null, Validators.compose([Validators.required])],
-      email: [null, Validators.compose([Validators.required, Validators.email])],
-      mobile_no: [null, Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10)])],
+      email: [null, Validators.compose([Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.-]+$/)])],
+      mobile_no: [null, Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[6-9]\d{9}$/)])],
       idproof: [null, Validators.compose([Validators.required])],
-      idproofno: [null, Validators.compose([Validators.required])],
-      uid: [null, Validators.compose([Validators.required, Validators.minLength(12), Validators.maxLength(12)])],
-      username: [null, Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(15)])],
-      userpassword: [null, Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(15)])],
+      idproofno: [null, Validators.compose([Validators.required, Validators.pattern(/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/)])],
+      uid: [null, Validators.compose([Validators.required, Validators.minLength(12), Validators.maxLength(12), Validators.pattern(/^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$/)])],
+      username: [null, Validators.compose([Validators.required, Validators.pattern(/^(?=.{8,15}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/)])],
+      userpassword: [null, Validators.compose([Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,15}$/)])],
       hintqiestionid: [null, Validators.compose([Validators.required])],
-      hintquestans: [null, Validators.compose([Validators.required, Validators.minLength(5)])]
+      hintquestans: [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.pattern(/^[A-Za-z0-9]+$/)])]
     });
     this.allRegistrations();
     this.getAllRegType();
@@ -83,7 +83,15 @@ export class RegistrationComponent implements OnInit {
     if (this.formRegister.invalid) {
       return;
     }
-    //console.log(data);
+   // console.log(data);
+    if (data.reg_type == 1) {
+      data.role_id = 999901;
+    } else if (data.reg_type == 2) {
+      data.role_id = 999902;
+    } else if (data.reg_type == 3) {
+      data.role_id = 999901;
+    }
+
     this.showRegister = true;
     this.showUpdate = false;
     this.apiRegister.register(data)

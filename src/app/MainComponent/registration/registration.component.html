@@ -107,6 +107,10 @@
                                 *ngIf="(registerFormControl.buildingdet.touched || submitted) && registerFormControl.buildingdet.errors?.minlength">
                                 Building details should be at least 5 char.
                             </span>
+                            <span class="text-danger"
+                                *ngIf="(registerFormControl.buildingdet.touched || submitted) && registerFormControl.buildingdet.errors?.pattern">
+                                Building details contains only alphanumeric, dash and underscore.
+                            </span>
                         </div>
                     </div>
                     <div class="col-sm-3">
@@ -121,6 +125,10 @@
                         <span class="text-danger"
                             *ngIf="(registerFormControl.street.touched || submitted) && registerFormControl.street.errors?.minlength">
                             Street name should be at least 5 char.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.street.touched || submitted) && registerFormControl.street.errors?.pattern">
+                            Street contains only alphanumeric, dash and underscore.
                         </span>
                     </div>
                 </div>
@@ -138,6 +146,10 @@
                         <span class="text-danger"
                             *ngIf="(registerFormControl.city.touched || submitted) && registerFormControl.city.errors?.minlength">
                             City name should be at least 4 char.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.fname.touched || submitted) && registerFormControl.fname.errors?.pattern">
+                            City contains only alphabets and dash.
                         </span>
                     </div>
 
@@ -161,6 +173,10 @@
                         <span class="text-danger"
                             *ngIf="(registerFormControl.pincode.touched || submitted) && registerFormControl.pincode.errors?.maxlength">
                             Pincode should be maximum 6 digit.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.pincode.touched || submitted) && registerFormControl.pincode.errors?.pattern">
+                            Pincode should be in correct format.
                         </span>
                     </div>
 
@@ -229,9 +245,13 @@
                             *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.required">
                             Email is required.
                         </span>
-                        <span class="text-danger"
+                        <!-- <span class="text-danger"
                             *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.email">
-                            Email is not in correct format.
+                            Email is not valid.
+                        </span> -->
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.pattern">
+                            Email is not valid.
                         </span>
                     </div>
                     <div class="col-sm-3">
@@ -254,6 +274,10 @@
                         <span class="text-danger"
                             *ngIf="(registerFormControl.mobile_no.touched || submitted) && registerFormControl.mobile_no.errors?.maxlength">
                             Mobile number should be maximum 10 digit.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.mobile_no.touched || submitted) && registerFormControl.mobile_no.errors?.pattern">
+                            Mobile number start with indian series (6,7,8,9).
                         </span>
                     </div>
                 </div>
@@ -286,6 +310,10 @@
                             *ngIf="(registerFormControl.idproofno.touched || submitted) && registerFormControl.idproofno.errors?.required">
                             ID Proof number is required.
                         </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.idproofno.touched || submitted) && registerFormControl.idproofno.errors?.pattern">
+                            PAN should be in correct format.
+                        </span>
                     </div>
 
                 </div>
@@ -311,6 +339,10 @@
                             *ngIf="(registerFormControl.uid.touched || submitted) && registerFormControl.uid.errors?.maxlength">
                             Aadhaar should be maximum 12 digit.
                         </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.uid.touched || submitted) && registerFormControl.uid.errors?.pattern">
+                            Aadhaar should be in correct format and not start with 0 & 1.
+                        </span>
                     </div>
 
                 </div>
@@ -329,12 +361,8 @@
                             User name is required.
                         </span>
                         <span class="text-danger"
-                            *ngIf="(registerFormControl.username.touched || submitted) && registerFormControl.username.errors?.minlength">
-                            User name should be minimum 8 characters.
-                        </span>
-                        <span class="text-danger"
-                            *ngIf="(registerFormControl.username.touched || submitted) && registerFormControl.username.errors?.maxlength">
-                            User name should be maximum 15 characters.
+                            *ngIf="(registerFormControl.username.touched || submitted) && registerFormControl.username.errors?.pattern">
+                            User name should be in correct format.
                         </span>
                     </div>
                     <div class="col-sm-3">
@@ -351,12 +379,9 @@
                             Password is required.
                         </span>
                         <span class="text-danger"
-                            *ngIf="(registerFormControl.userpassword.touched || submitted) && registerFormControl.userpassword.errors?.minlength">
-                            Password should be minimum 8 characters.
-                        </span>
-                        <span class="text-danger"
-                            *ngIf="(registerFormControl.userpassword.touched || submitted) && registerFormControl.userpassword.errors?.maxlength">
-                            Password should be maximum 15 characters.
+                            *ngIf="(registerFormControl.userpassword.touched || submitted) && registerFormControl.userpassword.errors?.pattern">
+                            Minimum eight and maximum 15 characters, at least one uppercase letter, one lowercase
+                            letter, one number and one special character
                         </span>
                     </div>
 
@@ -393,6 +418,10 @@
                         <span class="text-danger"
                             *ngIf="(registerFormControl.hintquestans.touched || submitted) && registerFormControl.hintquestans.errors?.minlength">
                             Hint question answer should be minimum 5 characters.
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="(registerFormControl.hintquestans.touched || submitted) && registerFormControl.hintquestans.errors?.pattern">
+                            Hint question contains only alphanumbers.
                         </span>
                     </div>
 
