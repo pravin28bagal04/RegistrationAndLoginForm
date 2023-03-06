@@ -31,7 +31,8 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-user"><i class="bi bi-eye-fill"></i></span>
                         <input type="password" class="form-control" id="password" formControlName="password"
-                            placeholder="Enter password" [ngClass]="{ 'is-invalid': submitted && loginFormControl.password.errors }">
+                            placeholder="Enter password"
+                            [ngClass]="{ 'is-invalid': submitted && loginFormControl.password.errors }">
                     </div>
                     <span class="text-danger"
                         *ngIf="(loginFormControl.password.touched || submitted) && loginFormControl.password.errors?.required">

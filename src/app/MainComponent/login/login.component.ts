@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private loginService: LoginService, private route: Router, private http: HttpClient) {
     this.ImagePath = '/assets/login.png';
   }
+
   ngOnInit(): void {
     this.formLogin = this.fb.group({
       uname: ['', Validators.compose([Validators.required, Validators.pattern(/^(?=.{8,15}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/)])],
