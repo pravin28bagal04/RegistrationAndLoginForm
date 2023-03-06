@@ -189,7 +189,7 @@
                         <select formControlName="state" id="state" class="form-select" (change)="onStateChange($event)"
                             [ngClass]=" { 'is-invalid' : submitted && registerFormControl.state.errors }">
                             <option disabled>--Select State--</option>
-                            <option *ngFor="let states of states_data" [value]="states.id">
+                            <option *ngFor="let states of states_data" value="{{states.id}}">
                                 {{states.state_name}}</option>
                         </select>
                         <span class="text-danger"
@@ -205,7 +205,7 @@
                             (change)="onDistrictChange($event)"
                             [ngClass]="{ 'is-invalid': submitted && registerFormControl.district.errors }">
                             <option disabled>--Select district--</option>
-                            <option *ngFor="let district of district_data" [value]="district.id">
+                            <option *ngFor="let district of district_data" value="{{district.id}}">
                                 {{district.district_name}}</option>
                         </select>
                         <span class="text-danger"
@@ -222,7 +222,7 @@
                         <select formControlName="tehsil" id="tehsil" class="form-select"
                             [ngClass]="{ 'is-invalid': submitted && registerFormControl.tehsil.errors }">
                             <option disabled>--Select tehsil--</option>
-                            <option *ngFor="let tehsil of tehsil_data" [value]="tehsil.id">
+                            <option *ngFor="let tehsil of tehsil_data" value="{{tehsil.id}}">
                                 {{tehsil.tehsil_name}}</option>
                         </select>
                         <span class="text-danger"

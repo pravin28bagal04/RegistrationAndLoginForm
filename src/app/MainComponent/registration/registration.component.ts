@@ -9,6 +9,7 @@ import { RegisterService } from 'src/app/ApiServices/register.service';
 import { StatesService } from 'src/app/ApiServices/states.service';
 import { TehsilService } from 'src/app/ApiServices/tehsil.service';
 import { Register } from 'src/app/DataModels/register.models';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-registration',
@@ -83,7 +84,7 @@ export class RegistrationComponent implements OnInit {
     if (this.formRegister.invalid) {
       return;
     }
-   // console.log(data);
+   
     if (data.reg_type == 1) {
       data.role_id = 999901;
     } else if (data.reg_type == 2) {
@@ -92,8 +93,11 @@ export class RegistrationComponent implements OnInit {
       data.role_id = 999901;
     }
 
+    data.userpassword = CryptoJS.SHA512(data.userpassword).toString(CryptoJS.enc.Hex);
+
     this.showRegister = true;
     this.showUpdate = false;
+    console.log(data);
     this.apiRegister.register(data)
       .subscribe({
         next: (res) => {
