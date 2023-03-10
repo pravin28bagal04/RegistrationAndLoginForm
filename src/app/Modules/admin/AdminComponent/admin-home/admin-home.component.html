@@ -1,1 +1,31 @@
-<h3>Admin-home works</h3>
+Data from Parent component:{{fromParent}}
+<hr>
+
+<div class="container">
+    <form [formGroup]="myForm">
+        <input type="text" class="form-control" id="fname" formControlName="fname" placeholder="Enter name"><br>
+        <input type="text" class="form-control" id="address" formControlName="address" placeholder="Enter address">
+        <button type="button" class="btn btn-success" (click)="onSubmit(this.myForm.value)">Send</button>
+    </form>
+</div>
+
+<!-- <table>
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Mobile No</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let myHomeData of homeData">
+            <td>{{myHomeData.id}}</td>
+            <td>{{myHomeData.name}}</td>
+            <td>{{myHomeData.address}}</td>
+            <td>{{myHomeData.mo_no}}</td>
+            <td>
+                 <button type="button" class="btn btn-info" (click)="sendDataToParent(myHomeData)">View</button>
+            </td>
+        </tr>
+    </tbody>
+</table> -->

@@ -1,5 +1,30 @@
 {
-  "register": [],
+  "register": [
+    {
+      "reg_type": "1",
+      "fname": "Pravin",
+      "mname": "Arun",
+      "lname": "Bagal",
+      "buildingdet": "Flat no 202 Shingote Park",
+      "street": "Manjari",
+      "city": "Pune",
+      "pincode": "412307",
+      "state": "1",
+      "district": "1",
+      "tehsil": "1",
+      "email": "bagalpra@gmail.com",
+      "mobile_no": "8605976998",
+      "idproof": "1",
+      "idproofno": "ASSWS8888T",
+      "uid": "531477220553",
+      "username": "Pravin123",
+      "userpassword": "b4416f90e6b4c115797f190eefea897a7c2b814de2b1617dc4bb33ce3ed82ed574f0e4e9af6504c40f9fb8d46903a3c115707f23507863a4ec22f3157bfeccdf",
+      "hintqiestionid": "1",
+      "hintquestans": "Test123",
+      "role_id": 999901,
+      "id": 1
+    }
+  ],
   "reg_type": [
     {
       "id": 1,

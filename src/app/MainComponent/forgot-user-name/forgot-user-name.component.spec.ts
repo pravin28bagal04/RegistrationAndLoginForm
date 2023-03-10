@@ -1,3 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ForgotUserNameComponent } from './forgot-user-name.component';
@@ -8,7 +10,9 @@ describe('ForgotUserNameComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ForgotUserNameComponent ]
+      imports:[HttpClientModule],
+      declarations: [ ForgotUserNameComponent ],
+      schemas:[CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA]
     })
     .compileComponents();
 

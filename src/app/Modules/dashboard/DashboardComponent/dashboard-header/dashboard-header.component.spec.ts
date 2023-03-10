@@ -1,3 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardHeaderComponent } from './dashboard-header.component';
@@ -8,7 +10,9 @@ describe('DashboardHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DashboardHeaderComponent ]
+      imports:[HttpClientModule],
+      declarations: [ DashboardHeaderComponent ],
+      schemas:[NO_ERRORS_SCHEMA]
     })
     .compileComponents();
 

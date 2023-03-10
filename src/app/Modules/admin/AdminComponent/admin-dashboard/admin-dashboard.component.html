@@ -1,6 +1,14 @@
 <div style="border: 1px solid black;">
     <app-header></app-header>
+
     <div style="min-height: 500px; padding: 10px 10px;">
+        <app-admin-home [fromParent]="namefromParent" (eventData)="formChild($event)"></app-admin-home><br>
+        <div>
+            <p>Data From Child</p>
+            Name:{{dataFromChildfname}}<br> Address:{{dataFromChildaddress}}
+            <p>End Data From Child</p>
+        </div><br>
+        <!-- <app-services [fromParent]="namefromParent"></app-services> -->
         <router-outlet></router-outlet>
     </div>
     <app-footer></app-footer>
